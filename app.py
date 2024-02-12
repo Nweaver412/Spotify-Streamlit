@@ -15,12 +15,6 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-# #importing throught client info 
-client_id = os.environ.get('CLIENT_ID')
-client_secret = os.environ.get('CLIENT_SECRET')
-redirect_uri = os.environ.get('REDIRECT_URI')
-
-
 # App config
 app = Flask(__name__)
 
