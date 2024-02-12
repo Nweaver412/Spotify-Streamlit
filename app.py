@@ -99,7 +99,7 @@ def get_token():
 
 def create_spotify_oauth():
     return SpotifyOAuth(
-            client_id = client_id,
-            client_secret = client_secret,
-            redirect_uri =  redirect_uri,
+            client_id = os.environ.get('CLIENT_ID'),
+            client_secret = os.environ.get('CLIENT_SECRET'),
+            redirect_uri = os.environ.get('REDIRECT_URI'),
             scope = "user-library-read")
