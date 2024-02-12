@@ -3,17 +3,22 @@ import csv
 import spotipy
 import json
 import time
+import os
 import pandas as pd
 import numpy as np
+
 from spotipy.oauth2 import SpotifyOAuth
 from flask import Flask, url_for, session, request, redirect
 from base64 import b64encode
+from dotenv import load_dotenv
 
 
-# #importing throught client info and 
-# client_id = 'e8cf2cb8c5bf4ce7b8dbf8edd9ea2698'
-# client_secret = '1cb5445e990c47a8bf0d24ffd69c81cd'
-# redirect_uri = 'http://127.0.0.1:5000/callback'
+load_dotenv()
+
+# #importing throught client info 
+client_id = os.environ.get('CLIENT_ID')
+client_secret = os.environ.get('CLIENT_SECRET')
+redirect_uri = os.environ.get('REDIRECT_URI')
 
 
 # App config
@@ -94,7 +99,7 @@ def get_token():
 
 def create_spotify_oauth():
     return SpotifyOAuth(
-            client_id="e8cf2cb8c5bf4ce7b8dbf8edd9ea2698",
-            client_secret="1cb5445e990c47a8bf0d24ffd69c81cd",
-            redirect_uri=  'http://127.0.0.1:5000/authorize',
-            scope="user-library-read")
+            client_id = client_id,
+            client_secret = client_secret,
+            redirect_uri =  redirect_uri,
+            scope = "user-library-read")
